@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  redirect,
+} from "react-router-dom";
 import React from "react";
 import BaseLayout from "../views/BaseLayout";
 import { SimpleRegistrationForm } from "../views/RegisterPage";
@@ -11,14 +15,14 @@ import RecomendationHotel from "../views/HotelRecomendation";
 import HotelList from "../views/ResultGemini";
 import Toastify from "toastify-js";
 
-const url = "http://localhost:3000"; // Sesuaikan dengan URL backend
+const url = "https://server.rinasismita.online"; // Sesuaikan dengan URL backend
 
 const router = createBrowserRouter([
   {
     path: "/login",
     element: <SimpleLoginForm url={url} />,
     loader: () => {
-      if (localStorage.getItem('access_token')) {
+      if (localStorage.getItem("access_token")) {
         Toastify({
           text: "You're already logged in",
           duration: 3000,
@@ -44,7 +48,7 @@ const router = createBrowserRouter([
   {
     element: <BaseLayout />,
     loader: () => {
-      if (!localStorage.getItem('access_token')) {
+      if (!localStorage.getItem("access_token")) {
         Toastify({
           text: "Please login first",
           duration: 3000,

@@ -11,7 +11,7 @@ export default function MyReviews() {
     const fetchMyReviews = async () => {
       try {
         const token = localStorage.getItem("access_token");
-        const response = await axios.get("http://localhost:3000/review/user", {
+        const response = await axios.get("https://server.rinasismita.online/review/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -30,7 +30,7 @@ export default function MyReviews() {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("access_token");
-      await axios.delete(`http://localhost:3000/review/${id}`, {
+      await axios.delete(`https://server.rinasismita.online/review/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

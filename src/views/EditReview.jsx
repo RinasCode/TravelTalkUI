@@ -21,7 +21,7 @@ export default function EditReview() {
     // Fetch review data by ID from API
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/review/${id}`, {
+        const response = await axios.get(`https://server.rinasismita.online/review/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('access_token')}`
           }
@@ -74,9 +74,10 @@ export default function EditReview() {
     } else {
       updatedData.append("image", formData.image); // Send existing image URL if no new file is selected
     }
-
+    
+    
     try {
-      await axios.put(`http://localhost:3000/review/${id}`, updatedData, {
+      await axios.put(`https://server.rinasismita.online/review/${id}`, updatedData, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${localStorage.getItem('access_token')}`

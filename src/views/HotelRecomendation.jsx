@@ -16,7 +16,7 @@ export default function ReviewForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/review/gemini",
+        "https://server.rinasismita.online/review/gemini",
         { harga, lokasi },
         {
           headers: {
@@ -52,41 +52,45 @@ export default function ReviewForm() {
 
   return (
     <>
-    <br />
-    <div className="flex flex-col items-center min-h-screen p-4 bg-gray-100">
-      <Card className="w-full max-w-md p-8">
-        <Typography variant="h4" color="blue-gray" className="text-center mb-4">
-          Find Hotels
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <Input
-              size="lg"
-              label="Price Range (e.g., 10 juta)"
-              value={harga}
-              onChange={(e) => setHarga(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <Input
-              size="lg"
-              label="Location (e.g., Tangerang Selatan)"
-              value={lokasi}
-              onChange={(e) => setLokasi(e.target.value)}
-              required
-            />
-          </div>
-          <Button type="submit" className="mt-4" fullWidth>
-            Search
-          </Button>
-        </form>
-      </Card>
+      <br />
+      <div className="flex flex-col items-center min-h-screen p-4 bg-gray-100">
+        <Card className="w-full max-w-md mb-5 p-8">
+          <Typography
+            variant="h4"
+            color="blue-gray"
+            className="text-center mb-4"
+          >
+            Find Hotels
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <Input
+                size="lg"
+                label="Price Range (e.g., 10 juta)"
+                value={harga}
+                onChange={(e) => setHarga(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <Input
+                size="lg"
+                label="Location (e.g., Tangerang Selatan)"
+                value={lokasi}
+                onChange={(e) => setLokasi(e.target.value)}
+                required
+              />
+            </div>
+            <Button type="submit" className="mt-4" fullWidth>
+              Search
+            </Button>
+          </form>
+        </Card>
 
-      <Card className="w-full max-w-md p-8">{hotelData}</Card>
-      {/* {hotelData && <HotelList data={hotelData} />}{" "} */}
-      {/* Render HotelList below the form */}
-    </div>
+        <Card className="w-full max-w-md p-8">{hotelData}</Card>
+        {/* {hotelData && <HotelList data={hotelData} />}{" "} */}
+        {/* Render HotelList below the form */}
+      </div>
     </>
   );
 }

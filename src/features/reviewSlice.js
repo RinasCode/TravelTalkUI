@@ -60,7 +60,7 @@ export const fetchAsync = () => async (dispatch) => {
     try {
         dispatch(fetchPending());
 
-        const { data } = await axios.get("http://localhost:3000/review", {
+        const { data } = await axios.get("https://server.rinasismita.online/review", {
             headers: {
                 Authorization: `Bearer ${localStorage.access_token}`
             }

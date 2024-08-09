@@ -34,7 +34,7 @@ export default function AddReview() {
     formDataToSend.append("authorId", localStorage.getItem('userId')); 
 
     try {
-      const response = await axios.post("http://localhost:3000/review", formDataToSend, {
+      const response = await axios.post("https://server.rinasismita.online/review", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${localStorage.getItem('access_token')}`
